@@ -12,6 +12,9 @@ setup(
         "torchvision",
         "numpy",
         "psutil",
+        "onnx",
+        "onnxruntime",
+        "onnxscript",
     ],
     entry_points={
         "console_scripts": [

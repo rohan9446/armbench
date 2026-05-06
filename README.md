@@ -11,10 +11,18 @@ git clone https://github.com/rohan9446/armbench.git
 cd armbench
 pip install -e .
 
+# basic run
 armbench run --model resnet18 --backends fp32 fp16 int8 --runs 50
-```
 
-This profiles ResNet18 across three backends and drops a JSON report + HTML dashboard into `results/`.
+# batch size scaling — critical for serving capacity planning
+armbench run --model resnet50 --backends fp32 int8 onnx_fp32 --runs 20 --batch-sizes 1 4 8 16 32
+
+# custom model from disk
+armbench run --model my_model.pt --backends fp32 int8 --runs 20
+
+# custom ONNX model
+armbench run --model my_model.onnx --backends fp32 --runs 20
+```
 
 ## What It Measures
 
@@ -95,11 +103,11 @@ class MyBackend(Backend):
 
 ## What's Next
 
-- ONNX Runtime backend
 - Arm NN backend for real Arm hardware profiling
-- Structured pruning (actual channel removal, not just zeroing)
-- Model size on disk tracking
-- CI benchmarking with regression detection
+- Comparison mode — detect regressions between runs
+- Warm-up analysis — prove stabilization over first N runs
+- Structured pruning (actual channel removal for real speedup)
+- CI regression detection with threshold alerts
 
 ## License
 

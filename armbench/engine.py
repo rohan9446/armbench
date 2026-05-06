@@ -43,6 +43,7 @@ def run_benchmark(model, input_tensor, backends, warmup=5, runs=50):
             "throughput_ops_sec": throughput,
             "param_count": model_info["param_count"],
             "model_size_mb": model_info["model_size_mb"],
+            "disk_size_mb": model_info["disk_size_mb"],
         })
 
     return results

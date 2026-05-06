@@ -15,6 +15,7 @@ def save_html_report(results, model_name, output_dir="results"):
             f"<td>{r['backend']}</td>"
             f"<td>{params}</td>"
             f"<td>{r.get('model_size_mb', '-')}</td>"
+            f"<td>{r.get('disk_size_mb', '-')}</td>"
             f"<td>{lat['p50_ms']}</td>"
             f"<td>{lat['p95_ms']}</td>"
             f"<td>{lat['p99_ms']}</td>"

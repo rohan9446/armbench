@@ -11,6 +11,7 @@ from armbench.backends.pruned import PrunedBackend
 from armbench.backends.cuda_fp32 import CudaFP32Backend
 from armbench.backends.cuda_fp16 import CudaFP16Backend
 from armbench.backends.onnx_fp32 import OnnxFP32Backend
+from armbench.backends.onnx_armnn import OnnxArmNNBackend
 
 BACKENDS = {
     "fp32": FP32Backend,
@@ -20,6 +21,7 @@ BACKENDS = {
     "cuda_fp32": CudaFP32Backend,
     "cuda_fp16": CudaFP16Backend,
     "onnx_fp32": OnnxFP32Backend,
+    "onnx_armnn": OnnxArmNNBackend,
 }
 
 MODELS = {
